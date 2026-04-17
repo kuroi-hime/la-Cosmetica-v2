@@ -1,47 +1,123 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<!-- <script setup>
+  import Header from './components/layouts/Header.vue'
+  import Footer from './components/layouts/Footer.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <div id="app_conatiner">
+    <Header />
+    <main>
+      <router-view />
+    </main>
+    <Footer />
+  </div>
 
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
+  #app_conatiner{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+  }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+  main{
+    max-height: 100vh;
+  }
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+}
+</style> -->
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+<template>
+  <div class="app">
+
+    <nav class="navbar">
+      <h2>La Cosmetica</h2>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+      </div>
+      <div>
+        <a href="/register">Register</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <router-view />
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 La Cosmetica - All rights reserved</p>
+    </footer>
+
+  </div>
+</template>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  padding: 0.5rem 2rem;
+  background: black;
+  color: white;
+  align-items: baseline;
+}
+.navbar a {
+  color: white;
+  /* margin-left: 15px; */
+  text-decoration: none;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.links a {
+  border-bottom: 2px solid currentColor;
+}
+
+.links a:hover {
+  color: #f8cdda;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* optional */
+.footer {
+  text-align: center;
+  padding: 1.25rem;
+  background: #f5f5f5;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #f5f5f5;
+  margin-top: 40px;
 }
 </style>
